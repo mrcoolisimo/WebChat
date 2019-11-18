@@ -2,7 +2,7 @@
 var express = require('express');
 var socket = require('socket.io')
 
-// App Setup -- Telling Express to listen on Port 4000
+// App Setup -- Telling Express to listen on Port 4000. "app" is an Express variable.
 var app = express();
 var server = app.listen(4000, function(){
     console.log("Listening on port 4000");
@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
     // Socket ID is a unique code for each connected user assigned upon connecting
     console.log('made socket connection',socket.id);
 
-    
+
     socket.on('chat', function(data){
         io.sockets.emit('chat', data);
     });
